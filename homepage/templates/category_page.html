@@ -34,97 +34,35 @@
 								<!-- row -->
 								<div class="row">
 									<!-- Column 1 -->
+
+
+									{% for item in categ.posts_set.all %}
 									<div class="col-md-3 col-sm-6">
 										<!-- ARTICLE -->
+
 										<article class="article">
 											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-1.jpg' %}" alt="">
+												<a href="/post/{{ item.id }}">
+													<img src="/media/{{ item.image }}" alt="">
 												</a>
 												<ul class="article-info">
 													<li class="article-type"><i class="fa fa-camera"></i></li>
 												</ul>
 											</div>
 											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
+												<h4 class="article-title"><a href="/post/{{ item.id }}">{{ item.title}}.</a></h4>
 												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
+													<li><i class="fa fa-clock-o"></i>{{ item.date_pub }}</li>
 													<li><i class="fa fa-comments"></i> 33</li>
 												</ul>
 											</div>
 										</article>
+
 										<!-- /ARTICLE -->
 									</div>
+									{% endfor %}
 									<!-- /Column 1 -->
 
-									<!-- Column 2 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-2.jpg' %}" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 2 -->
-
-									<!-- Column 3 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-3.jpg' %}" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-file-text"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 3 -->
-
-									<!-- Column 4 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-4.jpg' %}" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-file-text"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- Column 4 -->
 								</div>
 								<!-- /row -->
 

@@ -19,6 +19,7 @@ from .views import *
 
 urlpatterns = [
     path('', index, name="index"),
-    path('category/<name>/', category, name='category'),
+    path('category/<str:slug>/', category, name='category'),
+
 
 ]
