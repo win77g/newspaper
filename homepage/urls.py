@@ -19,5 +19,6 @@ from .views import *
 
 urlpatterns = [
     path('', index, name="index"),
+    path('category/<name>/', category, name='category'),
 
 ]
