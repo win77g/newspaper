@@ -23,7 +23,7 @@ class Posts(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150,unique=True)
     # category = models.ForeignKey(Categorys,on_delete=models.PROTECT,default=None, null=True,blank=True)
-    category = models.ManyToManyField(Category,blank=True)
+    category = models.ManyToManyField(Category,blank=True,)
     image = models.ImageField(upload_to=image_folder, blank=True, null=True, default=None)
     description = models.TextField(blank=True)
     description_short = models.TextField(blank=True)

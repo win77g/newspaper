@@ -4,7 +4,9 @@ from .models import Category,Posts
 # Create your views here.
 
 def index(request):
-    return render(request,'index.html')
+    post = Posts.objects.all()
+
+    return render(request,'index.html', context={'post':post})
 
 def category(request,slug):
     name_category = slug
@@ -15,5 +17,13 @@ def category(request,slug):
 
 def post(request,id):
     post = Posts.objects.get(id = id)
+    print(post.category)
 
     return render(request,'post_page.html',context={'post':post},)
+
+def slug(request):
+    data = request.POST
+    slug = data.get('slug')
+    categ = Category.objects.get(slug__iexact = slug)
+    print(categ)
+    return render(request, 'list_news.html', context={'categ':categ})

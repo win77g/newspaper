@@ -16,9 +16,9 @@
 
 						<!-- breadcrumb -->
 						<ul class="article-breadcrumb">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">News</a></li>
-							<li>Duis urbanitas eam in, tempor consequat.</li>
+							<li><a href="//">Home</a></li>
+							<li><a href="#"></a></li>
+							<li style="color:red">{{ post.title }}</li>
 						</ul>
 						<!-- /breadcrumb -->
 
@@ -51,12 +51,9 @@
 						<!-- widget tags -->
 						<div class="widget-tags">
 							<ul>
-								<li><a href="#">News</a></li>
-								<li><a href="#">Sport</a></li>
-								<li><a href="#">Lifestyle</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Music</a></li>
-								<li><a href="#">Business</a></li>
+								{% for i in post.category.all %}
+								<li><a href="#">{{ i.name }}</a></li>
+								{% endfor %}
 							</ul>
 						</div>
 						<!-- /widget tags -->
