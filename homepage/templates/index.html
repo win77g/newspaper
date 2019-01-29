@@ -81,7 +81,7 @@
 							<!-- tab nav -->
 
 							<ul class="tab-nav pull-right">
-								<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
+								<!--<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>-->
 								{% for i in category %}
 								<li><a data-toggle="tab" href="" id="news_category"  data-slug = "{{ i.slug }}">{{ i.name }}</a></li>
 								{% endfor %}
@@ -116,6 +116,7 @@
 												<h4 class="article-title"><a href="/post/{{ p.id }}">{{ p.title }}</a></h4>
 												<ul class="article-meta" >
 													<li style="color:grey"><i class="fa fa-clock-o" ></i>{{ p.date_pub }}</li>
+													<i class="fa fa-eye" aria-hidden="true"> {{ p.views }}</i>
 													<li><i class="fa fa-comments"></i> 33</li>
 												</ul>
 											</div>

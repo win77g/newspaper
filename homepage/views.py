@@ -17,6 +17,8 @@ def category(request,slug):
 
 def post(request,id):
     post = Posts.objects.get(id = id)
+    post.views += int(1)
+    post.save()
     print(post.category)
 
     return render(request,'post_page.html',context={'post':post},)

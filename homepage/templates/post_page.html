@@ -41,6 +41,7 @@
 								<ul class="article-meta">
                                     <li><i class="fa fa-clock-o"></i>Author:{{ post.author }}</li>
 									<li><i class="fa fa-clock-o"></i>{{ post.date_pub }}</li>
+									<i class="fa fa-eye" aria-hidden="true"> {{ post.views }}</i>
 									<li><i class="fa fa-comments"></i> 33</li>
 								</ul>
 								<p>{{ post.description }}</p>
@@ -52,7 +53,7 @@
 						<div class="widget-tags">
 							<ul>
 								{% for i in post.category.all %}
-								<li><a href="#">{{ i.name }}</a></li>
+								<li><a href="/category/{{ i.slug }}">{{ i.name }}</a></li>
 								{% endfor %}
 							</ul>
 						</div>

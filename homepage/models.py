@@ -29,6 +29,7 @@ class Posts(models.Model):
     description_short = models.TextField(blank=True)
     author = models.CharField(max_length=150,default=None)
     date_pub = models.DateTimeField(auto_now_add=True)
+    views = models.DecimalField(max_digits=5,decimal_places=0,blank=False,default=0 )
 
      # вывод одного поля
     def __str__(self):
