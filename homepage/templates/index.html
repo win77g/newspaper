@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}
-            Newspaper
+            (dev)Newspaper
 {% endblock %}
 {% block content %}
-
 <!-- Owl Carousel 1 -->
 		<div id="owl-carousel-1" class="owl-carousel owl-theme center-owl-nav">
 			<!-- ARTICLE -->
@@ -75,119 +74,59 @@
 					<!-- Main Column -->
 					<div class="col-md-12">
 						<!-- section title -->
+						<form id="news_modal" action="" method="post">{% csrf_token %}
 						<div class="section-title">
+
 							<h2 class="title">Trending Posts</h2>
 							<!-- tab nav -->
+
 							<ul class="tab-nav pull-right">
-								<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
-								<li><a data-toggle="tab" href="#tab1">News</a></li>
-								<li><a data-toggle="tab" href="#tab1">Sport</a></li>
-								<li><a data-toggle="tab" href="#tab1">Music</a></li>
-								<li><a data-toggle="tab" href="#tab1">Business</a></li>
-								<li><a data-toggle="tab" href="#tab1">Lifestyle</a></li>
+								<!--<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>-->
+								{% for i in category %}
+								<li><a data-toggle="tab" href="" id="news_category"  data-slug = "{{ i.slug }}">{{ i.name }}</a></li>
+								{% endfor %}
+
 							</ul>
+
 							<!-- /tab nav -->
 						</div>
+							 </form>
 						<!-- /section title -->
-
 						<!-- Tab content -->
 						<div class="tab-content">
 							<!-- tab1 -->
 							<div id="tab1" class="tab-pane fade in active">
 								<!-- row -->
 								<div class="row">
+									<span class="list_news_top">
 									<!-- Column 1 -->
+									{% for p in post %}
 									<div class="col-md-3 col-sm-6">
 										<!-- ARTICLE -->
 										<article class="article">
 											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-1.jpg' %}" alt="">
+												<a href="/post/{{ p.id }}">
+													<img src="/media/{{ p.image }}" alt="">
 												</a>
 												<ul class="article-info">
 													<li class="article-type"><i class="fa fa-camera"></i></li>
 												</ul>
 											</div>
 											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
+												<h4 class="article-title"><a href="/post/{{ p.id }}">{{ p.title }}</a></h4>
+												<ul class="article-meta" >
+													<li style="color:grey"><i class="fa fa-clock-o" ></i>{{ p.date_pub }}</li>
+													<i class="fa fa-eye" aria-hidden="true"> {{ p.views }}</i>
 													<li><i class="fa fa-comments"></i> 33</li>
 												</ul>
 											</div>
 										</article>
 										<!-- /ARTICLE -->
 									</div>
+									{% endfor %}
 									<!-- /Column 1 -->
+                                  </span>
 
-									<!-- Column 2 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-2.jpg' %}" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 2 -->
-
-									<!-- Column 3 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-3.jpg' %}" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-file-text"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 3 -->
-
-									<!-- Column 4 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="{% static './img/img-md-4.jpg' %}" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-file-text"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- Column 4 -->
 								</div>
 								<!-- /row -->
 

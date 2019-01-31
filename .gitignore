@@ -1,6 +1,10 @@
+
 .idea
 myvenv
 __pycache__/
 */__pycache__/
 *.py[cod]
 .pyc
+
+.idea/
+

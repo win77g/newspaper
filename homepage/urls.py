@@ -16,8 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import *
+from django.conf import settings
 
 urlpatterns = [
     path('', index, name="index"),
+    path('category/<str:slug>/', category, name='category'),
+    path('post/<id>/', post, name='post'),
+    path('slug/', slug, name='slug')
+
 
 ]
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    urlpatterns += staticfiles_urlpatterns()
